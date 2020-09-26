@@ -1,6 +1,7 @@
 package MultiThread02;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 public class TestDemo02 {
@@ -29,13 +30,32 @@ public class TestDemo02 {
          */
         //Callable类型的实例，任务体
         Callable01 callable = new Callable01();
-        callable.call();
-        //需要将Callable类型转化为Callable类型的类；FutureTask是Callable类型的一个子类
+        System.out.println(callable.call());
+        //需要将Callable类型转化为Runable类型的类；FutureTask是Callable类型的一个子类
         FutureTask<String> futureTask = new FutureTask<>(callable);
-
         //Thread 类型只能实现接口为Runable类型的任务体
         Thread thread = new Thread(futureTask);
         thread.start();
+        System.out.println("-----------------------------------");
 
+        //Callable可以在主线程中获取到子线程的运行结果的
+        try{
+            //get方法是获取子线程的运行结果
+            String s =futureTask.get();
+            System.out.println(Thread.currentThread().getName()+" S: "+s);
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }catch(ExecutionException e){
+            e.printStackTrace();
+        }
+
+        //匿名内部类创建线程
+        Thread thread1 = new Thread() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName()+"匿名内部类实现多线程");
+            }
+        };
+        thread1.start();
     }
 }
