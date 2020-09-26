@@ -4,7 +4,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
 public class TestDemo02 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         /*DiyThread2 diyThread1 = new DiyThread2();
         DiyThread2 diyThread2 = new DiyThread2();
         DiyThread2 diyThread3 = new DiyThread2();
@@ -29,7 +29,7 @@ public class TestDemo02 {
          */
         //Callable类型的实例，任务体
         Callable01 callable = new Callable01();
-
+        callable.call();
         //需要将Callable类型转化为Callable类型的类；FutureTask是Callable类型的一个子类
         FutureTask<String> futureTask = new FutureTask<>(callable);
 
