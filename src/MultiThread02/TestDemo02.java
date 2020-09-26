@@ -5,7 +5,7 @@ import java.util.concurrent.FutureTask;
 
 public class TestDemo02 {
     public static void main(String[] args) {
-        DiyThread2 diyThread1 = new DiyThread2();
+        /*DiyThread2 diyThread1 = new DiyThread2();
         DiyThread2 diyThread2 = new DiyThread2();
         DiyThread2 diyThread3 = new DiyThread2();
         diyThread1.start();
@@ -21,7 +21,7 @@ public class TestDemo02 {
         Thread thread3 = new Thread(diyRunable);
         thread1.start();
         thread2.start();
-        thread3.start();
+        thread3.start();*/
 //        如果不用任务体创建线程就不会共享，那时候线程就不是服务于同一个任务体了
 
         /**
@@ -30,7 +30,7 @@ public class TestDemo02 {
         //Callable类型的实例，任务体
         Callable01 callable = new Callable01();
 
-        //需要将Callable类型转化为Callable类型的类；
+        //需要将Callable类型转化为Callable类型的类；FutureTask是Callable类型的一个子类
         FutureTask<String> futureTask = new FutureTask<>(callable);
 
         //Thread 类型只能实现接口为Runable类型的任务体
