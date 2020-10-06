@@ -31,7 +31,7 @@ public class TestDemo02 {
         //Callable类型的实例，任务体
         Callable01 callable = new Callable01();
         System.out.println(callable.call());
-        //需要将Callable类型转化为Runable类型的类；FutureTask是Callable类型的一个子类
+        //需要将Callable类型转化为Runable类型的类；FutureTask是Runable类型的一个子类
         FutureTask<String> futureTask = new FutureTask<>(callable);
         //Thread 类型只能实现接口为Runable类型的任务体
         Thread thread = new Thread(futureTask);
