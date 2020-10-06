@@ -1,8 +1,6 @@
 package MultiThread02;
 
 
-import java.util.ArrayList;
-
 public class TestDemo {
     public static void main(String[] args) {
 
