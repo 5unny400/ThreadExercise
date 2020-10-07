@@ -36,6 +36,7 @@ public class TestDemo02 {
         //Thread 类型只能实现接口为Runable类型的任务体
         Thread thread = new Thread(futureTask);
         thread.start();
+//        thread.start();//不能重复调用
         System.out.println("-----------------------------------");
 
         //Callable可以在主线程中获取到子线程的运行结果的
