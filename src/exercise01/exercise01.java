@@ -1,12 +1,6 @@
 package exercise01;
 
-/**
- * @Author Shenxinyuan
- * @Description //TODO
- * @Date 19:53 2020/10/8 0008
- * @Param
- * @return
- **/
+
 public class exercise01 {
     public static void main(String[] args) {
 
@@ -20,13 +14,11 @@ public class exercise01 {
             thread02.start();
             thread02.join();
 
-            thread03.join();
+//            thread03.join();//这行可有可无
             thread03.start();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
     }
 }
 
