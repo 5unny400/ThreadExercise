@@ -1,8 +1,8 @@
 package MultiThread04;
 
-public class OutNumberInOrderStandard extends Thread{
+public class OutLetterDemo extends Thread{
     MyObject object;
-    static volatile int num;
+    volatile int num;
     volatile int index;
     String[] arr = {"A","B","C"};
 
@@ -10,7 +10,7 @@ public class OutNumberInOrderStandard extends Thread{
         this.num = num;
     }
 
-    OutNumberInOrderStandard(int index, MyObject object){
+    OutLetterDemo(int index, MyObject object){
         this.index = index;
         this.object = object;
     }
@@ -21,7 +21,7 @@ public class OutNumberInOrderStandard extends Thread{
 
     @Override
     public void run() {
-        while(getNum()<103){
+        while(num<10){
             synchronized(object){
                 if(!(this.index==object.getIndex())){
                     try {
@@ -30,25 +30,14 @@ public class OutNumberInOrderStandard extends Thread{
                         e.printStackTrace();
                     }
                 }else{
-                    System.out.print(arr[this.index]+":");
-
-                    int i =0;
-                    while(i<=5&&upNum()){
-                        System.out.print(this.num+" ");
-                        i++;
-                    }
-                    System.out.println();
+                    num++;
+                    System.out.println(arr[this.index]);
 
                     object.setIndex((this.index+1)%3);
                     object.notifyAll();
                 }
             }
         }
-    }
-
-    synchronized private boolean upNum() {
-        num++;
-        return num<103;
     }
 
     public static class MyObject{
@@ -71,8 +60,8 @@ public class OutNumberInOrderStandard extends Thread{
     public static void main(String[] args) {
         MyObject myObject = new MyObject(0);
 
-        new OutNumberInOrderStandard(0,myObject).start();
-        new OutNumberInOrderStandard(1,myObject).start();
-        new OutNumberInOrderStandard(2,myObject).start();
+        new OutLetterDemo(0,myObject).start();
+        new OutLetterDemo(1,myObject).start();
+        new OutLetterDemo(2,myObject).start();
     }
 }
