@@ -2,7 +2,7 @@ package MultiThread04;
 
 
 //第一种方法，使用Object的wait和notifyAll方法
-public class OutNumInOrderDemo {
+public class OutNumInOrderReference {
     static int count = 0;
     static final Object obj = new Object();
     Thread t1 = new Thread(new Runnable() {
@@ -69,7 +69,7 @@ public class OutNumInOrderDemo {
     }
 
     public static void main(String[] args) {
-        OutNumInOrderDemo tp = new OutNumInOrderDemo();
+        OutNumInOrderReference tp = new OutNumInOrderReference();
         long t1 = System.currentTimeMillis();
         tp.fun();
         while (true) {

@@ -2,7 +2,7 @@ package MultiThread04;
 
 public class OutNumberInOrderStandard extends Thread{
     MyObject object;
-    static volatile int num;
+    static volatile int num;        //开始数字
     volatile int index;
     String[] arr = {"A","B","C"};
 
@@ -21,7 +21,7 @@ public class OutNumberInOrderStandard extends Thread{
 
     @Override
     public void run() {
-        while(getNum()<103){
+        while(getNum()<=object.X){
             synchronized(object){
                 if(!(this.index==object.getIndex())){
                     try {
@@ -33,7 +33,7 @@ public class OutNumberInOrderStandard extends Thread{
                     System.out.print(arr[this.index]+":");
 
                     int i =0;
-                    while(i<=5&&upNum()){
+                    while(i<5&&upNum()){
                         System.out.print(this.num+" ");
                         i++;
                     }
@@ -48,11 +48,16 @@ public class OutNumberInOrderStandard extends Thread{
 
     synchronized private boolean upNum() {
         num++;
-        return num<103;
+        return num<=object.X;
     }
 
     public static class MyObject{
         int index;
+        int X=103;
+
+        public void setX(int x) {
+            X = x;
+        }
 
         public MyObject(int index) {
             this.index = index;
@@ -70,6 +75,8 @@ public class OutNumberInOrderStandard extends Thread{
 
     public static void main(String[] args) {
         MyObject myObject = new MyObject(0);
+
+        myObject.setX(92);
 
         new OutNumberInOrderStandard(0,myObject).start();
         new OutNumberInOrderStandard(1,myObject).start();
