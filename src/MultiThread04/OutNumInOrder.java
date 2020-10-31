@@ -39,12 +39,13 @@ public class OutNumInOrder {
                         System.out.println("----------------");
                         System.out.println(Thread.currentThread().getName() + (object.countUp()));
                         object.notifyAll();
-                    } else
+                    } else {
                         try {
                             object.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+                    }
                 }
             }
         }
@@ -104,10 +105,10 @@ public class OutNumInOrder {
             return count;
         }
 
-        synchronized  public int countUp(){
-            if(count<=100){
+        synchronized public int countUp() {
+            if (count <= 100) {
                 return count++;
-            }else{
+            } else {
                 System.exit(0);
             }
             return -1;
