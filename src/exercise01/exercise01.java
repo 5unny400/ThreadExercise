@@ -14,8 +14,8 @@ public class exercise01 {
             thread02.start();
             thread02.join();
 
-//            thread03.join();//这行可有可无
             thread03.start();
+//            thread03.join();//这行可有可无
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

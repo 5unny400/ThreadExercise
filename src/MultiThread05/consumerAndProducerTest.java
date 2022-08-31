@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class consumerAndCreaterTest {
+public class consumerAndProducerTest {
 
     public static void main(String[] args) {
         WareHouse wareHouse = new WareHouse(3,5);
@@ -14,7 +14,7 @@ public class consumerAndCreaterTest {
         Consumer consumer = new Consumer(wareHouse);
         Producer producer = new Producer(wareHouse);
         consumer.start();
-        producer.start();
+        producer.start();          //可以创建多个生产者多个消费者
 
         //运行4秒
         while(true) {

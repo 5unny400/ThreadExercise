@@ -44,9 +44,7 @@ public class TestDemo02 {
             //get方法是获取子线程的运行结果
             String s =futureTask.get();
             System.out.println(Thread.currentThread().getName()+" S: "+s);
-        }catch(InterruptedException e){
-            e.printStackTrace();
-        }catch(ExecutionException e){
+        }catch(InterruptedException | ExecutionException e){
             e.printStackTrace();
         }
 

@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 public class Test01 {
     public static void main(String[] args) {
         Runtime runtime = Runtime.getRuntime();
+        System.out.println("runtime = " + runtime);
 //        Process process = runtime.exec("ls");
         //将ls的执行结果通过io形式获取
 //        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));

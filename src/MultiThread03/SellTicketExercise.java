@@ -1,5 +1,7 @@
 package MultiThread03;
 
+import org.junit.Test;
+
 public class SellTicketExercise {
     private static int NUM = 100;
     private static volatile int num[] = new int[NUM];
@@ -55,6 +57,9 @@ public class SellTicketExercise {
     }
 
     public static void main(String[] args) throws InterruptedException {
+
+
+
         int num = 100;
         SellTicketExercise sellTicketExercise = new SellTicketExercise(num);
 
@@ -76,7 +81,9 @@ public class SellTicketExercise {
         }
 
         System.out.println("=====================");
-        sellTicketExercise.check();
+        sellTicketExercise.check();     //检查一下所有车票是否全部卖完
     }
+
+
 
 }

@@ -21,11 +21,11 @@ public class Main {
         for (int i = 0; i < 10; i ++) {
             int rand = random.nextInt(10);      //随机生成一个10以内的整数
 
-//            然后创建一个 FactorialCalculator对象，该对象就是待执行的任务，然后在第27行 通过线程池的submit方法提交。
+//            然后创建一个 FactorialCalculator对象，该对象就是待执行的任务，然后在第29行 通过线程池的submit方法提交。
             FactorialCalculator factorialCalculator = new FactorialCalculator(rand);
 //            需要注意的是：submit方法是个非阻塞方法，
 //            提交了任务后，由线程池里面的线程负责执行该任务，
-//            执行完成后得到的结果最终会保存在 Future<Integer>里面，正如第27行所示
+//            执行完成后得到的结果最终会保存在 Future<Integer>里面，正如第29行所示
             Future<Integer> res = executor.submit(factorialCalculator);//异步提交, non blocking.
             resultList.add(res);
         }
